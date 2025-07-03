@@ -870,3 +870,119 @@ Compiling...
 Compiled successfully!
 webpack compiled successfully
 No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 16:11:  'DefaultVisibilitySettings' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 16:11:  'DefaultVisibilitySettings' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 25:10:  'defaultVisibilitySettings' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 25:37:  'setDefaultVisibilitySettings' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 28:10:  'activeTab' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 25:10:  'defaultVisibilitySettings' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 25:37:  'setDefaultVisibilitySettings' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 28:10:  'activeTab' is assigned a value but never used                     @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 25:10:  'defaultVisibilitySettings' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 28:10:  'activeTab' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used               @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 25:10:  'defaultVisibilitySettings' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 28:10:  'activeTab' is assigned a value but never used                  @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used               @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 28:10:  'activeTab' is assigned a value but never used                @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 73:9:   'toggleDefaultVisibility' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 28:10:  'activeTab' is assigned a value but never used                @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used             @typescript-eslint/no-unused-vars
+  Line 73:9:   'toggleDefaultVisibility' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 28:10:  'activeTab' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+  Line 73:9:   'toggleDefaultVisibility' is assigned a value but never used           @typescript-eslint/no-unused-vars
+  Line 146:9:  'getDefaultVisibleActivitiesCount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/ClientVisibilityManager.tsx
+  Line 28:10:  'activeTab' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+  Line 28:21:  'setActiveTab' is assigned a value but never used                      @typescript-eslint/no-unused-vars
+  Line 73:9:   'toggleDefaultVisibility' is assigned a value but never used           @typescript-eslint/no-unused-vars
+  Line 146:9:  'getDefaultVisibleActivitiesCount' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.

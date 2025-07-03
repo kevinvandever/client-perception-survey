@@ -60,15 +60,35 @@ function App() {
       if (!supabase) return allActivities;
 
       try {
+        // Load both default and client-specific settings
         const { data, error } = await supabase
           .from('client_activity_visibility')
           .select('*')
-          .eq('client_id', userId)
-          .eq('is_hidden', true);
+          .or(`client_id.eq.DEFAULT,client_id.eq.${userId}`);
 
         if (error) throw error;
 
-        const hiddenActivityIds = new Set(data.map((row: any) => row.activity_id));
+        const hiddenActivityIds = new Set<number>();
+        
+        // First, add default hidden activities
+        data.forEach((row: any) => {
+          if (row.client_id === 'DEFAULT' && row.is_hidden) {
+            hiddenActivityIds.add(row.activity_id);
+          }
+        });
+        
+        // Then, process client-specific settings (these override defaults)
+        data.forEach((row: any) => {
+          if (row.client_id === userId) {
+            if (row.is_hidden) {
+              hiddenActivityIds.add(row.activity_id);
+            } else {
+              // Client-specific "show" setting overrides default "hide"
+              hiddenActivityIds.delete(row.activity_id);
+            }
+          }
+        });
+
         return allActivities.filter(activity => !hiddenActivityIds.has(activity.id));
       } catch (error) {
         console.log('Error loading visibility settings, showing all activities');
