@@ -1,13 +1,34 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Activity, Rating } from '../types/survey';
 
 interface ActivityItemProps {
   activity: Activity;
   rating: Rating;
+  comment?: string;
   onRatingChange: (activityId: number, rating: Rating) => void;
+  onCommentChange?: (activityId: number, comment: string) => void;
 }
 
-export const ActivityItem: React.FC<ActivityItemProps> = ({ activity, rating, onRatingChange }) => {
+export const ActivityItem: React.FC<ActivityItemProps> = ({ 
+  activity, 
+  rating, 
+  comment = '',
+  onRatingChange,
+  onCommentChange 
+}) => {
+  const [localComment, setLocalComment] = useState(comment);
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  useEffect(() => {
+    setLocalComment(comment);
+  }, [comment]);
+
+  const handleCommentBlur = () => {
+    if (onCommentChange && localComment !== comment) {
+      onCommentChange(activity.id, localComment);
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg shadow p-4 activity-row fade-in">
       <div className="flex items-center justify-between">
@@ -48,6 +69,32 @@ export const ActivityItem: React.FC<ActivityItemProps> = ({ activity, rating, on
           </button>
         </div>
       </div>
+      
+      {/* Comment section */}
+      {rating && (
+        <div className="mt-3">
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="text-sm text-blue-600 hover:text-blue-700 flex items-center gap-1"
+          >
+            <span>{isExpanded ? '▼' : '▶'}</span>
+            <span>{localComment ? 'Edit comment' : 'Add comment'}</span>
+          </button>
+          
+          {isExpanded && (
+            <div className="mt-2">
+              <textarea
+                value={localComment}
+                onChange={(e) => setLocalComment(e.target.value)}
+                onBlur={handleCommentBlur}
+                placeholder="Share your thoughts about this activity..."
+                className="w-full p-2 border border-gray-300 rounded-md text-sm resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+                rows={3}
+              />
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };

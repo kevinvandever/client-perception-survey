@@ -66,6 +66,55 @@ export class SupabaseSurveyService {
     }
   }
 
+  static async saveComment(activityId: number, comment: string): Promise<void> {
+    const userId = this.getUserId();
+    console.log('Saving comment:', { activityId, comment, userId });
+
+    try {
+      if (!supabase) {
+        console.log('Supabase not configured, using localStorage only');
+        this.saveCommentToLocalStorage(activityId, comment);
+        return;
+      }
+
+      if (!comment || comment.trim() === '') {
+        // Delete the comment if empty
+        console.log('Deleting comment for activity:', activityId);
+        const { error } = await supabase
+          .from('survey_responses')
+          .update({ comment: null })
+          .eq('activity_id', activityId)
+          .eq('user_id', userId);
+
+        if (error) {
+          console.error('Delete comment error:', error);
+          throw error;
+        }
+      } else {
+        // Update the comment
+        console.log('Updating comment:', { activityId, comment, userId });
+        const { data, error } = await supabase
+          .from('survey_responses')
+          .update({ comment })
+          .eq('activity_id', activityId)
+          .eq('user_id', userId)
+          .select();
+
+        if (error) {
+          console.error('Update comment error:', error);
+          throw error;
+        }
+        console.log('Comment update successful:', data);
+      }
+
+      // Also save to localStorage as backup
+      this.saveCommentToLocalStorage(activityId, comment);
+    } catch (error) {
+      console.error('Error saving comment to Supabase, falling back to localStorage:', error);
+      this.saveCommentToLocalStorage(activityId, comment);
+    }
+  }
+
   static async saveRating(activityId: number, rating: Rating): Promise<void> {
     const userId = this.getUserId();
     console.log('Saving rating:', { activityId, rating, userId });
@@ -102,7 +151,8 @@ export class SupabaseSurveyService {
             activity_id: activityId,
             rating,
             user_id: userId,
-            session_id: this.sessionId
+            session_id: this.sessionId,
+            comment: undefined // Preserve existing comment
           }, {
             onConflict: 'activity_id,user_id'
           })
@@ -158,6 +208,7 @@ export class SupabaseSurveyService {
         id: row.id,
         activityId: row.activity_id,
         rating: row.rating as Rating,
+        comment: row.comment,
         timestamp: new Date(row.created_at),
         userId: row.user_id
       }));
@@ -203,13 +254,14 @@ export class SupabaseSurveyService {
 
   static async exportToCSV(activities: any[]): Promise<string> {
     const responses = await this.getAllUserResponses();
-    let csv = 'Service Category,Service Name,Client Rating,Timestamp\n';
+    let csv = 'Service Category,Service Name,Client Rating,Comment,Timestamp\n';
     
     activities.forEach(activity => {
       const response = responses.find(r => r.activityId === activity.id);
       const rating = response ? response.rating : 'Not Rated';
+      const comment = response?.comment || '';
       const timestamp = response ? new Date(response.timestamp).toLocaleString() : '';
-      csv += `"${activity.pillarName}","${activity.name}","${rating}","${timestamp}"\n`;
+      csv += `"${activity.pillarName}","${activity.name}","${rating}","${comment}","${timestamp}"\n`;
     });
 
     return csv;
@@ -227,6 +279,18 @@ export class SupabaseSurveyService {
   }
 
   // Fallback methods for localStorage
+  private static saveCommentToLocalStorage(activityId: number, comment: string): void {
+    if (!comment || comment.trim() === '') {
+      localStorage.removeItem(`comment_${activityId}`);
+    } else {
+      localStorage.setItem(`comment_${activityId}`, comment);
+    }
+  }
+
+  private static getCommentFromLocalStorage(activityId: number): string {
+    return localStorage.getItem(`comment_${activityId}`) || '';
+  }
+
   private static saveToLocalStorage(activityId: number, rating: Rating): void {
     if (rating === null) {
       localStorage.removeItem(`rating_${activityId}`);
@@ -243,13 +307,51 @@ export class SupabaseSurveyService {
   private static clearLocalStorage(): void {
     const keys = Object.keys(localStorage);
     keys.forEach(key => {
-      if (key.startsWith('rating_')) {
+      if (key.startsWith('rating_') || key.startsWith('comment_')) {
         localStorage.removeItem(key);
       }
     });
   }
 
-  // Load all ratings for initial state (hybrid approach)
+  // Load all ratings and comments for initial state (hybrid approach)
+  static async loadAllRatingsAndComments(activities: any[]): Promise<{ ratings: Record<number, Rating>, comments: Record<number, string> }> {
+    const ratings: Record<number, Rating> = {};
+    const comments: Record<number, string> = {};
+
+    try {
+      const userId = this.getUserId();
+      const { data, error } = await supabase
+        .from('survey_responses')
+        .select('activity_id, rating, comment')
+        .eq('user_id', userId);
+
+      if (error) throw error;
+
+      // Initialize all ratings as null and comments as empty
+      activities.forEach(activity => {
+        ratings[activity.id] = null;
+        comments[activity.id] = '';
+      });
+
+      // Fill in actual ratings and comments from database
+      data.forEach((row: any) => {
+        ratings[row.activity_id] = row.rating as Rating;
+        comments[row.activity_id] = row.comment || '';
+      });
+    } catch (error) {
+      console.error('Error loading data from Supabase, falling back to localStorage:', error);
+      
+      // Fallback to localStorage
+      activities.forEach(activity => {
+        ratings[activity.id] = this.getRatingFromLocalStorage(activity.id);
+        comments[activity.id] = this.getCommentFromLocalStorage(activity.id);
+      });
+    }
+
+    return { ratings, comments };
+  }
+
+  // Load all ratings for initial state (hybrid approach) - DEPRECATED
   static async loadAllRatings(activities: any[]): Promise<Record<number, Rating>> {
     const ratings: Record<number, Rating> = {};
 

@@ -12,6 +12,7 @@ export interface SurveyResponse {
   id: string;
   activityId: number;
   rating: Rating;
+  comment?: string;
   timestamp: Date;
   userId?: string;
 }

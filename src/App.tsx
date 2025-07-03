@@ -14,6 +14,7 @@ function App() {
   const [activities, setActivities] = useState<Activity[]>(defaultActivities);
   const [visibleActivities, setVisibleActivities] = useState<Activity[]>(defaultActivities);
   const [ratings, setRatings] = useState<Record<number, Rating>>({});
+  const [comments, setComments] = useState<Record<number, string>>({});
   const [collapsedPillars, setCollapsedPillars] = useState<Set<number>>(new Set([1, 2, 3, 4]));
   const [stats, setStats] = useState<SurveyStats>({
     love: 0,
@@ -106,8 +107,9 @@ function App() {
         const userVisibleActivities = await loadVisibilitySettings(userId, currentActivities);
         setVisibleActivities(userVisibleActivities);
         
-        const loadedRatings = await SupabaseSurveyService.loadAllRatings(userVisibleActivities);
-        setRatings(loadedRatings);
+        const loadedData = await SupabaseSurveyService.loadAllRatingsAndComments(userVisibleActivities);
+        setRatings(loadedData.ratings);
+        setComments(loadedData.comments);
       } catch (error) {
         console.error('Error loading data:', error);
       }
@@ -154,6 +156,23 @@ function App() {
     }
   };
 
+  const handleCommentChange = async (activityId: number, comment: string) => {
+    try {
+      await SupabaseSurveyService.saveComment(activityId, comment);
+      setComments(prev => ({
+        ...prev,
+        [activityId]: comment
+      }));
+    } catch (error) {
+      console.error('Error saving comment:', error);
+      // Still update UI optimistically
+      setComments(prev => ({
+        ...prev,
+        [activityId]: comment
+      }));
+    }
+  };
+
   const handleExport = async () => {
     try {
       await SupabaseSurveyService.downloadCSV(visibleActivities);
@@ -167,10 +186,13 @@ function App() {
       try {
         await SupabaseSurveyService.clearUserResponses();
         const emptyRatings: Record<number, Rating> = {};
+        const emptyComments: Record<number, string> = {};
         visibleActivities.forEach((activity: Activity) => {
           emptyRatings[activity.id] = null;
+          emptyComments[activity.id] = '';
         });
         setRatings(emptyRatings);
+        setComments(emptyComments);
       } catch (error) {
         console.error('Error resetting survey:', error);
       }
@@ -275,7 +297,9 @@ function App() {
                         key={activity.id}
                         activity={activity}
                         rating={ratings[activity.id]}
+                        comment={comments[activity.id]}
                         onRatingChange={handleRatingChange}
+                        onCommentChange={handleCommentChange}
                       />
                     ))}
                   </div>
