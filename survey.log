@@ -1,0 +1,872 @@
+
+> client-perception-survey@0.1.0 start
+> react-scripts start
+
+(node:99374) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:99374) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(node:99374) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view client-perception-survey in the browser.
+
+  Local:            http://localhost:3001
+  On Your Network:  http://10.0.0.86:3001
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+ERROR in src/hooks/useClientId.ts:2:33
+TS2307: Cannot find module 'react-router-dom' or its corresponding type declarations.
+    1 | import { useEffect } from 'react';
+  > 2 | import { useSearchParams } from 'react-router-dom';
+      |                                 ^^^^^^^^^^^^^^^^^^
+    3 |
+    4 | export const useClientId = () => {
+    5 |   const [searchParams] = useSearchParams();
+
+ERROR in src/services/supabaseSurveyService.ts:133:23
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    131 |       if (error) throw error;
+    132 |
+  > 133 |       return data.map(row => ({
+        |                       ^^^
+    134 |         id: row.id,
+    135 |         activityId: row.activity_id,
+    136 |         rating: row.rating as Rating,
+
+ERROR in src/services/supabaseSurveyService.ts:247:20
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    245 |
+    246 |       // Fill in actual ratings from database
+  > 247 |       data.forEach(row => {
+        |                    ^^^
+    248 |         ratings[row.activity_id] = row.rating as Rating;
+    249 |       });
+    250 |     } catch (error) {
+
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/services/supabaseSurveyService.ts:133:23
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    131 |       if (error) throw error;
+    132 |
+  > 133 |       return data.map(row => ({
+        |                       ^^^
+    134 |         id: row.id,
+    135 |         activityId: row.activity_id,
+    136 |         rating: row.rating as Rating,
+
+ERROR in src/services/supabaseSurveyService.ts:247:20
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    245 |
+    246 |       // Fill in actual ratings from database
+  > 247 |       data.forEach(row => {
+        |                    ^^^
+    248 |         ratings[row.activity_id] = row.rating as Rating;
+    249 |       });
+    250 |     } catch (error) {
+
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/services/supabaseSurveyService.ts:133:23
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    131 |       if (error) throw error;
+    132 |
+  > 133 |       return data.map(row => ({
+        |                       ^^^
+    134 |         id: row.id,
+    135 |         activityId: row.activity_id,
+    136 |         rating: row.rating as Rating,
+
+ERROR in src/services/supabaseSurveyService.ts:247:20
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    245 |
+    246 |       // Fill in actual ratings from database
+  > 247 |       data.forEach(row => {
+        |                    ^^^
+    248 |         ratings[row.activity_id] = row.rating as Rating;
+    249 |       });
+    250 |     } catch (error) {
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/services/supabaseSurveyService.ts:247:20
+TS7006: Parameter 'row' implicitly has an 'any' type.
+    245 |
+    246 |       // Fill in actual ratings from database
+  > 247 |       data.forEach(row => {
+        |                    ^^^
+    248 |         ratings[row.activity_id] = row.rating as Rating;
+    249 |       });
+    250 |     } catch (error) {
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+Files successfully emitted, waiting for typecheck results...
+Issues checking in progress...
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:  'TaskManager' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 6:10:  'Activity' is defined but never used     @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:  'TaskManager' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 6:10:  'Activity' is defined but never used     @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 36:29:  'setCurrentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                    @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 36:29:  'setCurrentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 157:9:  'handleTasksUpdate' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 157:9:  'handleTasksUpdate' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 157:9:  'handleTasksUpdate' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 5:10:   'TaskManager' is defined but never used                 @typescript-eslint/no-unused-vars
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  Line 157:9:  'handleTasksUpdate' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/components/TaskManager.tsx
+  Line 30:6:  React Hook useEffect has a missing dependency: 'loadCustomActivities'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+src/components/TaskManager.tsx
+  Line 30:6:  React Hook useEffect has a missing dependency: 'loadCustomActivities'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 36:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/components/AdminDashboard.tsx:157:5
+TS2304: Cannot find name 'setCurrentActivities'.
+    155 |
+    156 |   const handleTasksUpdate = (updatedTasks: Activity[]) => {
+  > 157 |     setCurrentActivities(updatedTasks);
+        |     ^^^^^^^^^^^^^^^^^^^^
+    158 |   };
+    159 |
+    160 |   if (!authenticated) {
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 8:24:   'defaultActivities' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 10:31:  'Activity' is defined but never used           @typescript-eslint/no-unused-vars
+  Line 11:10:  'supabase' is defined but never used           @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 8:24:   'defaultActivities' is defined but never used  @typescript-eslint/no-unused-vars
+  Line 10:31:  'Activity' is defined but never used           @typescript-eslint/no-unused-vars
+  Line 11:10:  'supabase' is defined but never used           @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+ERROR in src/App.tsx:27:74
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    25 |     const loadRatings = async () => {
+    26 |       try {
+  > 27 |         const loadedRatings = await SupabaseSurveyService.loadAllRatings(activities);
+       |                                                                          ^^^^^^^^^^
+    28 |         setRatings(loadedRatings);
+    29 |       } catch (error) {
+    30 |         console.error('Error loading ratings:', error);
+
+ERROR in src/App.tsx:49:47
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    47 |     });
+    48 |
+  > 49 |     const progress = Math.round((totalRated / activities.length) * 100);
+       |                                               ^^^^^^^^^^
+    50 |
+    51 |     setStats({
+    52 |       ...counts,
+
+ERROR in src/App.tsx:77:47
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    75 |   const handleExport = async () => {
+    76 |     try {
+  > 77 |       await SupabaseSurveyService.downloadCSV(activities);
+       |                                               ^^^^^^^^^^
+    78 |     } catch (error) {
+    79 |       console.error('Error exporting data:', error);
+    80 |     }
+
+ERROR in src/App.tsx:88:9
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    86 |         await SupabaseSurveyService.clearUserResponses();
+    87 |         const emptyRatings: Record<number, Rating> = {};
+  > 88 |         activities.forEach(activity => {
+       |         ^^^^^^^^^^
+    89 |           emptyRatings[activity.id] = null;
+    90 |         });
+    91 |         setRatings(emptyRatings);
+
+ERROR in src/App.tsx:88:28
+TS7006: Parameter 'activity' implicitly has an 'any' type.
+    86 |         await SupabaseSurveyService.clearUserResponses();
+    87 |         const emptyRatings: Record<number, Rating> = {};
+  > 88 |         activities.forEach(activity => {
+       |                            ^^^^^^^^
+    89 |           emptyRatings[activity.id] = null;
+    90 |         });
+    91 |         setRatings(emptyRatings);
+
+ERROR in src/App.tsx:98:43
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+     96 |   };
+     97 |
+  >  98 |   const isComplete = stats.totalRated === activities.length;
+        |                                           ^^^^^^^^^^
+     99 |   const lovedActivities = activities.filter(a => ratings[a.id] === 'love');
+    100 |
+    101 |   // Mark session as complete when survey is finished
+
+ERROR in src/App.tsx:99:27
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+     97 |
+     98 |   const isComplete = stats.totalRated === activities.length;
+  >  99 |   const lovedActivities = activities.filter(a => ratings[a.id] === 'love');
+        |                           ^^^^^^^^^^
+    100 |
+    101 |   // Mark session as complete when survey is finished
+    102 |   useEffect(() => {
+
+ERROR in src/App.tsx:99:45
+TS7006: Parameter 'a' implicitly has an 'any' type.
+     97 |
+     98 |   const isComplete = stats.totalRated === activities.length;
+  >  99 |   const lovedActivities = activities.filter(a => ratings[a.id] === 'love');
+        |                                             ^
+    100 |
+    101 |   // Mark session as complete when survey is finished
+    102 |   useEffect(() => {
+
+ERROR in src/App.tsx:109:38
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    107 |
+    108 |   // Group activities by pillar
+  > 109 |   const pillars = Array.from(new Set(activities.map(a => a.pillar)));
+        |                                      ^^^^^^^^^^
+    110 |   const pillarColors: Record<number, string> = {
+    111 |     1: 'border-blue-500',
+    112 |     2: 'border-green-500',
+
+ERROR in src/App.tsx:109:53
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    107 |
+    108 |   // Group activities by pillar
+  > 109 |   const pillars = Array.from(new Set(activities.map(a => a.pillar)));
+        |                                                     ^
+    110 |   const pillarColors: Record<number, string> = {
+    111 |     1: 'border-blue-500',
+    112 |     2: 'border-green-500',
+
+ERROR in src/App.tsx:125:38
+TS2552: Cannot find name 'activities'. Did you mean 'ActivityItem'?
+    123 |         <div id="surveyContent">
+    124 |           {pillars.map(pillarId => {
+  > 125 |             const pillarActivities = activities.filter(a => a.pillar === pillarId);
+        |                                      ^^^^^^^^^^
+    126 |             const pillarName = pillarActivities[0].pillarName;
+    127 |
+    128 |             return (
+
+ERROR in src/App.tsx:125:56
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    123 |         <div id="surveyContent">
+    124 |           {pillars.map(pillarId => {
+  > 125 |             const pillarActivities = activities.filter(a => a.pillar === pillarId);
+        |                                                        ^
+    126 |             const pillarName = pillarActivities[0].pillarName;
+    127 |
+    128 |             return (
+
+ERROR in src/App.tsx:129:20
+TS2322: Type 'unknown' is not assignable to type 'Key | null | undefined'.
+    127 |
+    128 |             return (
+  > 129 |               <div key={pillarId} className="mb-8">
+        |                    ^^^
+    130 |                 <h2 className={`text-2xl font-bold mb-4 text-gray-800 border-l-4 ${pillarColors[pillarId]} pl-4`}>
+    131 |                   {pillarName}
+    132 |                 </h2>
+
+ERROR in src/App.tsx:130:97
+TS2538: Type 'unknown' cannot be used as an index type.
+    128 |             return (
+    129 |               <div key={pillarId} className="mb-8">
+  > 130 |                 <h2 className={`text-2xl font-bold mb-4 text-gray-800 border-l-4 ${pillarColors[pillarId]} pl-4`}>
+        |                                                                                                 ^^^^^^^^
+    131 |                   {pillarName}
+    132 |                 </h2>
+    133 |                 <div className="space-y-3">
+
+ERROR in src/App.tsx:134:41
+TS7006: Parameter 'activity' implicitly has an 'any' type.
+    132 |                 </h2>
+    133 |                 <div className="space-y-3">
+  > 134 |                   {pillarActivities.map(activity => (
+        |                                         ^^^^^^^^
+    135 |                     <ActivityItem
+    136 |                       key={activity.id}
+    137 |                       activity={activity}
+
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 11:10:  'supabase' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+  Line 14:22:  'setActivities' is assigned a value but never used                                                                    @typescript-eslint/no-unused-vars
+  Line 36:6:   React Hook useEffect has a missing dependency: 'activities'. Either include it or remove the dependency array         react-hooks/exhaustive-deps
+  Line 57:6:   React Hook useEffect has a missing dependency: 'activities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 11:10:  'supabase' is defined but never used                                                                                  @typescript-eslint/no-unused-vars
+  Line 14:22:  'setActivities' is assigned a value but never used                                                                    @typescript-eslint/no-unused-vars
+  Line 36:6:   React Hook useEffect has a missing dependency: 'activities'. Either include it or remove the dependency array         react-hooks/exhaustive-deps
+  Line 57:6:   React Hook useEffect has a missing dependency: 'activities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 91:6:  React Hook useEffect has a missing dependency: 'activities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 91:6:  React Hook useEffect has a missing dependency: 'activities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:  'ClientVisibilityManager' is defined but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:  'ClientVisibilityManager' is defined but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 37:29:  'setCurrentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used        @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 37:29:  'setCurrentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used     @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used     @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used     @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/AdminDashboard.tsx
+  Line 6:10:   'ClientVisibilityManager' is defined but never used     @typescript-eslint/no-unused-vars
+  Line 37:10:  'currentActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 15:10:  'visibleActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 15:29:  'setVisibleActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 15:10:  'visibleActivities' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 15:29:  'setVisibleActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 15:10:  'visibleActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 15:10:  'visibleActivities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 117:6:  React Hook useEffect has a missing dependency: 'visibleActivities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 117:6:  React Hook useEffect has a missing dependency: 'visibleActivities.length'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 14:10:  'activities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 14:10:  'activities' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/App.tsx:217:25
+TS2322: Type '{ activities: Activity[]; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'activities' does not exist on type 'IntrinsicAttributes'.
+    215 |         )}
+    216 |
+  > 217 |         <AdminDashboard activities={activities} />
+        |                         ^^^^^^^^^^
+    218 |       </div>
+    219 |     </div>
+    220 |   );
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/components/AdminDashboard.tsx:40:74
+TS2552: Cannot find name 'activities'. Did you mean 'allActivities'?
+    38 |   const [authenticated, setAuthenticated] = useState(false);
+    39 |   const [activeTab, setActiveTab] = useState<'clients' | 'analytics' | 'tasks' | 'visibility'>('clients');
+  > 40 |   const [currentActivities, setCurrentActivities] = useState<Activity[]>(activities);
+       |                                                                          ^^^^^^^^^^
+    41 |
+    42 |   const checkPassword = () => {
+    43 |     // Simple password check - you should use proper auth in production
+
+ERROR in src/components/AdminDashboard.tsx:84:27
+TS2552: Cannot find name 'activities'. Did you mean 'allActivities'?
+    82 |           .map((r: any) => ({
+    83 |             activityId: r.activity_id,
+  > 84 |             activityName: activities.find(a => a.id === r.activity_id)?.name || 'Unknown',
+       |                           ^^^^^^^^^^
+    85 |             rating: r.rating
+    86 |           }))
+    87 |           .slice(0, 5); // Top 5 loved services
+
+ERROR in src/components/AdminDashboard.tsx:84:43
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    82 |           .map((r: any) => ({
+    83 |             activityId: r.activity_id,
+  > 84 |             activityName: activities.find(a => a.id === r.activity_id)?.name || 'Unknown',
+       |                                           ^
+    85 |             rating: r.rating
+    86 |           }))
+    87 |           .slice(0, 5); // Top 5 loved services
+
+ERROR in src/components/AdminDashboard.tsx:131:26
+TS2552: Cannot find name 'activities'. Did you mean 'activity'?
+    129 |       let csv = 'User ID,Activity ID,Activity Name,Rating,Timestamp\n';
+    130 |       data.forEach((row: any) => {
+  > 131 |         const activity = activities.find(a => a.id === row.activity_id);
+        |                          ^^^^^^^^^^
+    132 |         csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${row.created_at}"\n`;
+    133 |       });
+    134 |
+
+ERROR in src/components/AdminDashboard.tsx:131:42
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    129 |       let csv = 'User ID,Activity ID,Activity Name,Rating,Timestamp\n';
+    130 |       data.forEach((row: any) => {
+  > 131 |         const activity = activities.find(a => a.id === row.activity_id);
+        |                                          ^
+    132 |         csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${row.created_at}"\n`;
+    133 |       });
+    134 |
+
+ERROR in src/components/AdminDashboard.tsx:148:22
+TS2552: Cannot find name 'activities'. Did you mean 'activityId'?
+    146 |
+    147 |   const getActivityName = (activityId: number) => {
+  > 148 |     const activity = activities.find(a => a.id === activityId);
+        |                      ^^^^^^^^^^
+    149 |     return activity ? activity.name : `Activity ${activityId}`;
+    150 |   };
+    151 |
+
+ERROR in src/components/AdminDashboard.tsx:148:38
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    146 |
+    147 |   const getActivityName = (activityId: number) => {
+  > 148 |     const activity = activities.find(a => a.id === activityId);
+        |                                      ^
+    149 |     return activity ? activity.name : `Activity ${activityId}`;
+    150 |   };
+    151 |
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/components/AdminDashboard.tsx:84:27
+TS2552: Cannot find name 'activities'. Did you mean 'allActivities'?
+    82 |           .map((r: any) => ({
+    83 |             activityId: r.activity_id,
+  > 84 |             activityName: activities.find(a => a.id === r.activity_id)?.name || 'Unknown',
+       |                           ^^^^^^^^^^
+    85 |             rating: r.rating
+    86 |           }))
+    87 |           .slice(0, 5); // Top 5 loved services
+
+ERROR in src/components/AdminDashboard.tsx:84:43
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    82 |           .map((r: any) => ({
+    83 |             activityId: r.activity_id,
+  > 84 |             activityName: activities.find(a => a.id === r.activity_id)?.name || 'Unknown',
+       |                                           ^
+    85 |             rating: r.rating
+    86 |           }))
+    87 |           .slice(0, 5); // Top 5 loved services
+
+ERROR in src/components/AdminDashboard.tsx:131:26
+TS2552: Cannot find name 'activities'. Did you mean 'activity'?
+    129 |       let csv = 'User ID,Activity ID,Activity Name,Rating,Timestamp\n';
+    130 |       data.forEach((row: any) => {
+  > 131 |         const activity = activities.find(a => a.id === row.activity_id);
+        |                          ^^^^^^^^^^
+    132 |         csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${row.created_at}"\n`;
+    133 |       });
+    134 |
+
+ERROR in src/components/AdminDashboard.tsx:131:42
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    129 |       let csv = 'User ID,Activity ID,Activity Name,Rating,Timestamp\n';
+    130 |       data.forEach((row: any) => {
+  > 131 |         const activity = activities.find(a => a.id === row.activity_id);
+        |                                          ^
+    132 |         csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${row.created_at}"\n`;
+    133 |       });
+    134 |
+
+ERROR in src/components/AdminDashboard.tsx:148:22
+TS2552: Cannot find name 'activities'. Did you mean 'activityId'?
+    146 |
+    147 |   const getActivityName = (activityId: number) => {
+  > 148 |     const activity = activities.find(a => a.id === activityId);
+        |                      ^^^^^^^^^^
+    149 |     return activity ? activity.name : `Activity ${activityId}`;
+    150 |   };
+    151 |
+
+ERROR in src/components/AdminDashboard.tsx:148:38
+TS7006: Parameter 'a' implicitly has an 'any' type.
+    146 |
+    147 |   const getActivityName = (activityId: number) => {
+  > 148 |     const activity = activities.find(a => a.id === activityId);
+        |                                      ^
+    149 |     return activity ? activity.name : `Activity ${activityId}`;
+    150 |   };
+    151 |
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 17:10:  'collapsedPillars' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 17:28:  'setCollapsedPillars' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 17:10:  'collapsedPillars' is assigned a value but never used     @typescript-eslint/no-unused-vars
+  Line 17:28:  'setCollapsedPillars' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.tsx
+  Line 17:10:  'collapsedPillars' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  Line 160:9:  'togglePillarCollapse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.tsx
+  Line 17:10:  'collapsedPillars' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  Line 160:9:  'togglePillarCollapse' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+webpack compiled with 1 warning
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+ERROR in src/services/supabaseSurveyService.ts:95:20
+TS2339: Property 'createSession' does not exist on type 'typeof SupabaseSurveyService'.
+    93 |       } else {
+    94 |         // Create session if not exists
+  > 95 |         await this.createSession();
+       |                    ^^^^^^^^^^^^^
+    96 |
+    97 |         // Upsert the rating (insert or update)
+    98 |         console.log('Upserting rating:', { activityId, rating, userId, sessionId: this.sessionId });
+
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
+Compiling...
+Compiled successfully!
+webpack compiled successfully
+No issues found.
