@@ -126,10 +126,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ activities: allA
       if (error) throw error;
 
       // Convert to CSV
-      let csv = 'User ID,Activity ID,Activity Name,Rating,Timestamp\n';
+      let csv = 'User ID,Activity ID,Activity Name,Rating,Comment,Timestamp\n';
       data.forEach((row: any) => {
         const activity = allActivities.find((a: Activity) => a.id === row.activity_id);
-        csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${row.created_at}"\n`;
+        const comment = row.comment || '';
+        csv += `"${row.user_id}","${row.activity_id}","${activity?.name || 'Unknown'}","${row.rating}","${comment}","${row.created_at}"\n`;
       });
 
       // Download
