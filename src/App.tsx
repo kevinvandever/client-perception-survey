@@ -14,7 +14,7 @@ function App() {
   const [activities, setActivities] = useState<Activity[]>(defaultActivities);
   const [visibleActivities, setVisibleActivities] = useState<Activity[]>(defaultActivities);
   const [ratings, setRatings] = useState<Record<number, Rating>>({});
-  const [collapsedPillars, setCollapsedPillars] = useState<Set<number>>(new Set());
+  const [collapsedPillars, setCollapsedPillars] = useState<Set<number>>(new Set([1, 2, 3, 4]));
   const [stats, setStats] = useState<SurveyStats>({
     love: 0,
     neutral: 0,
